@@ -26,3 +26,45 @@ async function processUserCreation() {
     handleError(error);
   }
 }
+
+async function processLogin() {
+  while (true) {
+    try {
+      const credentials = await inquireCredentials();
+      const tempUsername = credentials.username;
+      const tempPassword = credentials.password;
+      const userRecord = getUser(tempUsername);
+
+      if (!userRecord) {
+        console.log("");
+        console.log(
+          chalk.red.bold(`${cross} Invalid username. Please try again.`)
+        );
+        console.log("");
+        continue;
+      }
+
+      const isMatch = await verifyPassword(userRecord.password, tempPassword);
+
+      if (isMatch) {
+        username = tempUsername;
+        password = tempPassword;
+        console.log("");
+        console.log(
+          chalk.green.bold(`${tick} User authenticated successfully.`)
+        );
+        console.log("");
+        userId = getUserId(username);
+        break;
+      } else {
+        console.log("");
+        console.log(
+          chalk.red.bold(`${cross} Invalid password. Please try again.`)
+        );
+        console.log("");
+      }
+    } catch (error) {
+      handleError(error);
+    }
+  }
+}
