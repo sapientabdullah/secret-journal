@@ -3,7 +3,7 @@
 
 import minimist from "minimist";
 import { hashPassword, verifyPassword } from "./lib/argon2Helper.js";
-import { createUser } from "./lib/users.js";
+import { createUser, getUser } from "./lib/users.js";
 
 export const tick = "\u2714";
 export const cross = "\u2716";
@@ -67,4 +67,8 @@ async function processLogin() {
       handleError(error);
     }
   }
+}
+
+function handleError(msg) {
+  console.error("Oops! An error occurred:", msg);
 }
