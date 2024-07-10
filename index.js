@@ -3,7 +3,7 @@
 
 import minimist from "minimist";
 import { hashPassword, verifyPassword } from "./lib/argon2Helper.js";
-import { createUser, getUser } from "./lib/users.js";
+import { createUser, getUser, getUserId } from "./lib/users.js";
 
 export const tick = "\u2714";
 export const cross = "\u2716";
