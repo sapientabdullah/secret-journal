@@ -1,0 +1,39 @@
+{
+  "name": "secret-journal",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "bin": {
+    "journal": "./index.js"
+  },
+  "keywords": [
+    "journal",
+    "CLI",
+    "notes",
+    "private",
+    "encryption"
+  ],
+  "author": "Muhammad Abdullah Khan",
+  "license": "MIT",
+  "description": "A private journaling CLI application with AES encryption, designed for fast and secure journaling @ the speed of thought.",
+  "dependencies": {
+    "argon2": "^0.40.3",
+    "better-sqlite3": "^11.1.1",
+    "chalk": "^5.3.0",
+    "crypto": "^1.0.1",
+    "figlet": "^1.7.0",
+    "gradient-string": "^2.0.2",
+    "inquirer": "^9.3.1",
+    "minimist": "^1.2.8"
+  },
+  "files": [
+    "index.js",
+    "lib/"
+  ],
+  "homepage": "https://github.com/sapientabdullah/secret-journal#readme",
+  "repository": "https://github.com/sapientabdullah/secret-journal"
+}
