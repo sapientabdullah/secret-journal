@@ -2,6 +2,10 @@
 "use strict";
 
 import minimist from "minimist";
+import figlet from "figlet";
+import chalk from "chalk";
+import inquirer from "inquirer";
+import gradient from "gradient-string";
 import { hashPassword, verifyPassword } from "./lib/argon2Helper.js";
 import { createUser, getUser, getUserId } from "./lib/users.js";
 
@@ -15,6 +19,25 @@ const argv = minimist(process.argv.slice(2), {
   boolean: ["create-post", "view-post", "edit-post", "new-user"],
   string: ["help", "month", "year"],
 });
+
+async function welcome() {
+  return new Promise((resolve, reject) => {
+    figlet.text("Secret Journal", { font: "Script" }, async (err, data) => {
+      if (err) {
+        reject(err);
+      } else {
+        console.log(gradient.rainbow.multiline(data));
+        await typeText(
+          chalk.blueBright.bold(
+            "Confidential Journaling @ the Speed of Thought\n"
+          )
+        );
+        console.log("");
+        resolve();
+      }
+    });
+  });
+}
 
 async function processUserCreation() {
   try {
@@ -71,4 +94,16 @@ async function processLogin() {
 
 function handleError(msg) {
   console.error("Oops! An error occurred:", msg);
+}
+
+async function sleep(ms = 2000) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+}
+async function typeText(text, delay = 25) {
+  for (let i = 0; i < text.length; i++) {
+    process.stdout.write(text[i]);
+    await sleep(delay);
+  }
 }
