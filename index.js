@@ -6,8 +6,18 @@ import figlet from "figlet";
 import chalk from "chalk";
 import inquirer from "inquirer";
 import gradient from "gradient-string";
+import { aesEncrypt } from "./lib/cryptoHelper.js";
+import { capturePost } from "./lib/editor.js";
 import { hashPassword, verifyPassword } from "./lib/argon2Helper.js";
-import { createUser, getUser, getUserId } from "./lib/users.js";
+import { createPost, postsByYearTree, postsByMonthTree } from "./lib/posts.js";
+import { createUser, getUser, getUserId, hasUsers } from "./lib/users.js";
+import {
+  inquireUsername,
+  inquirePassword,
+  inquireCredentials,
+  inquireDisplayPost,
+  inquireEditPost,
+} from "./lib/inquirerHelper.js";
 
 export const tick = "\u2714";
 export const cross = "\u2716";
@@ -144,17 +154,6 @@ async function welcome() {
   });
 }
 
-async function processUserCreation() {
-  try {
-    username = await inquireUsername();
-    password = await inquirePassword();
-    const hashedPassword = await hashPassword(password);
-    createUser(username, hashedPassword);
-  } catch (error) {
-    handleError(error);
-  }
-}
-
 async function processLogin() {
   while (true) {
     try {
@@ -197,19 +196,14 @@ async function processLogin() {
   }
 }
 
-function handleError(msg) {
-  console.error("Oops! An error occurred:", msg);
-}
-
-async function sleep(ms = 2000) {
-  return new Promise((resolve) => {
-    setTimeout(resolve, ms);
-  });
-}
-async function typeText(text, delay = 25) {
-  for (let i = 0; i < text.length; i++) {
-    process.stdout.write(text[i]);
-    await sleep(delay);
+async function processUserCreation() {
+  try {
+    username = await inquireUsername();
+    password = await inquirePassword();
+    const hashedPassword = await hashPassword(password);
+    createUser(username, hashedPassword);
+  } catch (error) {
+    handleError(error);
   }
 }
 
@@ -290,5 +284,17 @@ function printHelp(topic) {
     allMessages.forEach((message) => {
       console.log(chalk.greenBright(message));
     });
+  }
+}
+
+async function sleep(ms = 2000) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+}
+async function typeText(text, delay = 25) {
+  for (let i = 0; i < text.length; i++) {
+    process.stdout.write(text[i]);
+    await sleep(delay);
   }
 }
