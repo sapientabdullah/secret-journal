@@ -20,6 +20,30 @@ const argv = minimist(process.argv.slice(2), {
   string: ["help", "month", "year"],
 });
 
+if (argv.help !== undefined) {
+  printHelp(argv.help);
+} else if (argv["create-post"]) {
+  processLogin().then(() => {
+    processPostCreation();
+  });
+} else if (argv["new-user"]) {
+  processUserCreation();
+} else if (argv["edit-post"]) {
+  processLogin().then(() => {
+    inquireEditPost(userId, password);
+  });
+} else if (argv["view-post"]) {
+  processLogin().then(() => {
+    inquireDisplayPost(userId, password);
+  });
+} else if (argv.year || argv.month) {
+  processLogin().then(() => {
+    postsByMonthTree(userId, password, argv.year, argv.month);
+  });
+} else {
+  main();
+}
+
 async function welcome() {
   return new Promise((resolve, reject) => {
     figlet.text("Secret Journal", { font: "Script" }, async (err, data) => {
