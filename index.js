@@ -80,6 +80,51 @@ async function main() {
   }
 }
 
+async function menu(userId, password) {
+  const choices = [
+    { name: "Create Post", value: "create" },
+    { name: "View Post Hierarchy", value: "hierarchy" },
+    { name: "View a Specific Post", value: "view" },
+    { name: "Edit/Delete Post", value: "edit_delete" },
+    { name: "Exit", value: "exit" },
+  ];
+
+  while (true) {
+    const { action } = await inquirer.prompt({
+      type: "list",
+      name: "action",
+      message: "What would you like to do?",
+      choices,
+    });
+
+    switch (action) {
+      case "create":
+        console.clear();
+        await processPostCreation(userId, password);
+        break;
+      case "view":
+        console.clear();
+        await inquireDisplayPost(userId, password);
+        break;
+      case "edit_delete":
+        console.clear();
+        await inquireEditPost(userId, password);
+        break;
+      case "hierarchy":
+        console.clear();
+        await postsByYearTree(userId, password);
+        break;
+      case "exit":
+        console.log("");
+        console.log(chalk.green.bold(`Goodbye, ${username}!`));
+        return;
+      default:
+        console.log(chalk.red.bold("Invalid choice, please try again."));
+        break;
+    }
+  }
+}
+
 async function welcome() {
   return new Promise((resolve, reject) => {
     figlet.text("Secret Journal", { font: "Script" }, async (err, data) => {
