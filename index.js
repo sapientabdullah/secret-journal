@@ -107,3 +107,28 @@ async function typeText(text, delay = 25) {
     await sleep(delay);
   }
 }
+
+async function processPostCreation() {
+  try {
+    const result = await capturePost();
+    if (result) {
+      const { title, content, date } = result;
+      const year = new Date().getFullYear();
+      const month = new Date().getMonth() + 1;
+      const userId = getUserId(username);
+
+      const encryptedTitle = aesEncrypt(title, password);
+      const encryptedContent = aesEncrypt(content, password);
+
+      createPost(encryptedTitle, encryptedContent, date, year, month, userId);
+    } else {
+      console.log("User canceled or an error occurred.");
+    }
+  } catch (error) {
+    handleError(error);
+  }
+}
+
+function handleError(msg) {
+  console.error("Oops! An error occurred:", msg);
+}
