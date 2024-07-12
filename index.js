@@ -44,6 +44,42 @@ if (argv.help !== undefined) {
   main();
 }
 
+async function main() {
+  await welcome();
+  if (!hasUsers()) {
+    console.log("\n👤 Let's start by creating your user credentials.\n");
+    await processUserCreation()
+      .then(() => {
+        console.log("\n🌟 Next, let's create your first post.\n");
+        return processPostCreation();
+      })
+      .then(() => {
+        console.log("\n🔍 Let's see all the posts you've created.\n");
+        userId = getUserId(username);
+        return postsByYearTree(userId, password);
+      })
+      .then(() => {
+        console.log("\n📄 Let's view a specific post.");
+        return inquireDisplayPost(userId, password);
+      })
+      .then(() => {
+        console.log("\n📝 Next, let's learn post editing.");
+        return inquireEditPost(userId, password);
+      })
+      .then(() => {
+        console.log("\n✨ You're now ready to use the program!");
+        console.log("");
+        return menu(userId, password);
+      })
+      .catch((error) => {
+        handleError(error);
+      });
+  } else {
+    await processLogin();
+    await menu(userId, password);
+  }
+}
+
 async function welcome() {
   return new Promise((resolve, reject) => {
     figlet.text("Secret Journal", { font: "Script" }, async (err, data) => {
