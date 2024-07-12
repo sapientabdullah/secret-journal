@@ -237,3 +237,31 @@ async function processPostCreation() {
 function handleError(msg) {
   console.error("Oops! An error occurred:", msg);
 }
+
+function printHelp(topic) {
+  const specificMessages = {
+    "new-user": `Use the ${chalk.red.bold(
+      "--new-user"
+    )} flag to register as a new user for managing separate journals or in case you forget your credentials.`,
+    "create-post": `Use the ${chalk.red.bold(
+      "--create-post"
+    )} flag to create a new post in your journal.`,
+    "view-post": `Use the ${chalk.red.bold(
+      "--view-post"
+    )} flag to search for posts by keyword and view a specific post.`,
+    "edit-post": `Use the ${chalk.red.bold(
+      "--edit-post"
+    )} flag to search for posts by keyword and edit or delete a specific post.`,
+    year: `The ${chalk.red.bold("--month")} and ${chalk.red.bold(
+      "--year"
+    )} flags display a hierarchical view of posts from a specific month and year. For instance, ${chalk.red.bold(
+      "--month=7"
+    )} ${chalk.red.bold(
+      "--year=2024"
+    )} shows posts from July 2024. Omitting the ${chalk.red.bold(
+      "--year"
+    )} flag displays posts from the entered month of the current year.`,
+    month: `The ${chalk.red.bold("--month")} and ${chalk.red.bold(
+      "--year"
+    )} flags display a hierarchical view of posts from a specific month and year. For instance, ${chalk.red.bold(
+      "--month=7"
