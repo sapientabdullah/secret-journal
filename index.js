@@ -265,3 +265,30 @@ function printHelp(topic) {
       "--year"
     )} flags display a hierarchical view of posts from a specific month and year. For instance, ${chalk.red.bold(
       "--month=7"
+    )} ${chalk.red.bold(
+      "--year=2024"
+    )} shows posts from July 2024. Omitting the ${chalk.red.bold(
+      "--year"
+    )} flag displays posts from the entered month of the current year.`,
+  };
+  const allMessages = [
+    `• To access all program actions from the menu, start without any flags using the ${chalk.red.bold(
+      "journal"
+    )} command.`,
+    `\nYou can also perform specific actions and exit the program by typing ${chalk.red.bold(
+      "journal"
+    )} followed by ${chalk.red.bold("--flag-name")}:\n`,
+    `• ${specificMessages["new-user"]}\n`,
+    `• ${specificMessages["create-post"]}\n`,
+    `• ${specificMessages["view-post"]}\n`,
+    `• ${specificMessages["edit-post"]}\n`,
+    `• ${specificMessages["year"]}\n`,
+  ];
+  if (specificMessages[topic]) {
+    console.log(chalk.greenBright(specificMessages[topic]));
+  } else {
+    allMessages.forEach((message) => {
+      console.log(chalk.greenBright(message));
+    });
+  }
+}
