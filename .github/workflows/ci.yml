@@ -1,4 +1,4 @@
-name: Node.js CI - Multi OS Testing
+name: Multi OS Testing
 
 on:
   push:
