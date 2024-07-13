@@ -1,9 +1,13 @@
 <p align="center">
+  <img width="500" src="https://utfs.io/f/e4fde66c-dea5-46c5-9b4b-9c83de8b633a-n3ch5g.png">
+  <br>
   <i>Confidential Journaling @ the Speed of Thought</i>
   <br>
   <br>
   <a href="#"><img src="https://img.shields.io/badge/node-%3E=18.0.0-brightgreen.svg" alt="Node Version"></a>
 </p>
+
+![Demo](https://utfs.io/f/d23952bc-18a9-4bda-ae9d-2eb6afadb1e6-tz1yqs.gif)
 
 ## Table of contents
 
@@ -38,13 +42,13 @@ npm install -g secret-journal
 
 # Quick start
 
-When you first use the CLI, simply enter `journal` in your terminal to start a guided tutorial:
+To use the CLI, just type `journal` in your terminal. If it’s your first time using it, an interactive tutorial will start automatically:
 
 ```bash
 journal
 ```
 
-![Initial tutorial upon first login](https://utfs.io/f/e08b0af2-5ecc-4c8e-8f28-c2147e5fb830-2lpc7r.png)
+![Initial tutorial upon first login](https://utfs.io/f/6b2deadc-3738-4531-bd17-82da642c51d3-pkje4t.png)
 
 ## Essential Commands for Post Creation
 
