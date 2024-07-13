@@ -77,6 +77,9 @@ async function main() {
         return inquireEditPost(userId, password);
       })
       .then(() => {
+        console.clear();
+        console.log("");
+        console.log("");
         console.log("\n✨ You're now ready to use the program!");
         console.log("");
         return menu(userId, password);
@@ -109,19 +112,15 @@ async function menu(userId, password) {
 
     switch (action) {
       case "create":
-        console.clear();
         await processPostCreation(userId, password);
         break;
       case "view":
-        console.clear();
         await inquireDisplayPost(userId, password);
         break;
       case "edit_delete":
-        console.clear();
         await inquireEditPost(userId, password);
         break;
       case "hierarchy":
-        console.clear();
         await postsByYearTree(userId, password);
         break;
       case "exit":
