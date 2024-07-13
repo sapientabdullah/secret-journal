@@ -8,13 +8,15 @@
   },
   "type": "module",
   "bin": {
-    "journal": "./index.js"
+    "journal": "index.js"
   },
   "keywords": [
-    "journal",
-    "CLI",
-    "notes",
-    "encryption"
+    "journaling",
+    "notes-tool",
+    "diary",
+    "cli-app",
+    "aes-encryption",
+    "node-js"
   ],
   "author": "Muhammad Abdullah Khan",
   "license": "MIT",
@@ -33,5 +35,8 @@
     "lib/"
   ],
   "homepage": "https://github.com/sapientabdullah/secret-journal#readme",
-  "repository": "https://github.com/sapientabdullah/secret-journal"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sapientabdullah/secret-journal.git"
+  }
 }
