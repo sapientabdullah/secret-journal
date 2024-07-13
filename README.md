@@ -1,2 +1,8 @@
-# secret-journal
-A fast and secure CLI journal with AES encryption, enabling seamless journaling @ the speed of thought
+
+                                                                    _  
+   ()                          /\                                  | | 
+   /\  _   __   ,_    _ _|_   |  |  __          ,_    _  _    __,  | | 
+  /  \|/  /    /  |  |/  |    |  | /  \_|   |  /  |  / |/ |  /  |  |/  
+ /(__/|__/\___/   |_/|__/|_/   \_|/\__/  \_/|_/   |_/  |  |_/\_/|_/|__/
+                                /|                                     
+                                \|                                     
