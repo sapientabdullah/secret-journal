@@ -8,6 +8,7 @@ import inquirer from "inquirer";
 import gradient from "gradient-string";
 import { aesEncrypt } from "./lib/cryptoHelper.js";
 import { capturePost } from "./lib/editor.js";
+import { setDefaultEditor } from "./lib/editor.js";
 import { hashPassword, verifyPassword } from "./lib/argon2Helper.js";
 import { createPost, postsByYearTree, postsByMonthTree } from "./lib/posts.js";
 import { createUser, getUser, getUserId, hasUsers } from "./lib/users.js";
@@ -26,7 +27,7 @@ let password;
 let userId;
 
 const argv = minimist(process.argv.slice(2), {
-  boolean: ["create-post", "view-post", "edit-post", "new-user"],
+  boolean: ["create-post", "view-post", "edit-post", "new-user", "set-editor"],
   string: ["help", "month", "year"],
 });
 
@@ -50,6 +51,8 @@ if (argv.help !== undefined) {
   processLogin().then(() => {
     postsByMonthTree(userId, password, argv.year, argv.month);
   });
+} else if (argv["set-editor"]) {
+  setDefaultEditor();
 } else {
   main();
 }
