@@ -31,8 +31,7 @@
 
 ## Installation
 
-Before installing, [download and install Node.js](https://nodejs.org/en/download/).
-Node.js 18 or above is required
+Before installing, ensure you have [downloaded and installed Node.js](https://nodejs.org/en/download/) version 18 or higher. Additionally, make sure you have at least one of the following text editors listed [here]().
 
 You can install the Secret Journal CLI globally using npm:
 
@@ -86,7 +85,7 @@ It’s also possible to provide command-line arguments to perform specific actio
 | --create-post | boolean | Create a new post in your journal                                                                                                                                                                                 |
 | --view-post   | boolean | Search for posts by keyword and view a specific post                                                                                                                                                              |
 | --edit-post   | boolean | Search for posts by keyword and edit or delete a specific post                                                                                                                                                    |
-| --set-editor  | boolean | Select a default text editor from the available options on your system
+| --set-editor  | boolean | Select a default text editor from the available options on your system                                                                                                                                            |
 | --year        | string  | Hierarchical view of posts from a specific month and year. For instance, `--month=7 --year=2024` shows posts from July 2024. Omitting the `--year` flag displays posts from the entered month of the current year |
 | --month       | string  | Hierarchical view of posts from a specific month and year                                                                                                                                                         |
 | --help        | string  | Pass a flag such as `--help new-user` to learn about specific options, or use `--help` to view all available help options                                                                                         |
