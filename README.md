@@ -17,6 +17,7 @@
 - [Essential Commands for Post Creation](#essential-commands-for-post-creation)
 - [Post viewing commands](#post-viewing-commands)
 - [Command line options](#command-line-options)
+- [Editor options](#editor-options)
 
 ## Features
 
@@ -31,7 +32,7 @@
 
 ## Installation
 
-Before installing, ensure you have [downloaded and installed Node.js](https://nodejs.org/en/download/) version 18 or higher. Additionally, make sure you have at least one of the following text editors listed [here]().
+Before installing, ensure you have [downloaded and installed Node.js](https://nodejs.org/en/download/) version 18 or higher. Additionally, make sure you have at least one of the following text editors listed [here](#editor-options).
 
 You can install the Secret Journal CLI globally using npm:
 
@@ -89,3 +90,41 @@ It’s also possible to provide command-line arguments to perform specific actio
 | --year        | string  | Hierarchical view of posts from a specific month and year. For instance, `--month=7 --year=2024` shows posts from July 2024. Omitting the `--year` flag displays posts from the entered month of the current year |
 | --month       | string  | Hierarchical view of posts from a specific month and year                                                                                                                                                         |
 | --help        | string  | Pass a flag such as `--help new-user` to learn about specific options, or use `--help` to view all available help options                                                                                         |
+
+## Editor options
+
+| Editor | Command | Available for                         |
+| ------ | ------- | ------------------------------------- |
+| Vim    | `vim`   | Unix, Linux, macOS, Windows (via WSL) |
+| Neovim | `nvim`  | Unix, Linux, macOS, Windows (via WSL) |
+| Nano   | `nano`  | Unix, Linux, macOS, Windows (via WSL) |
+| Vi     | `vi`    | Unix, Linux, macOS, Windows (via WSL) |
+| Emacs  | `emacs` | Unix, Linux, macOS, Windows (via WSL) |
+
+You can also edit the `config.json` file to reset or change your default editor. This file is located in the `.secret-journal` directory in your home folder.
+
+### Navigating to the `config.json` File
+
+#### Unix, Linux, and macOS:
+
+1. Open your terminal.
+2. Navigate to the `.secret-journal` directory by running:
+
+```bash
+cd ~/.secret-journal
+```
+
+#### Windows:
+
+1. Open Command Prompt or PowerShell.
+2. Navigate to the `.secret-journal` directory by running:
+
+```powershell
+cd $env:USERPROFILE\.secret-journal
+```
+
+3. Open the `config.json` file in your preferred text editor. For example, to open it with notepad, run:
+
+```powershell
+notepad config.json
+```
