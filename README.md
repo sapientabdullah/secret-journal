@@ -13,11 +13,11 @@
 
 - [Features](#features)
 - [Installation](#installation)
-- [Quick start](#quick-start)
+- [Quick Start](#quick-start)
 - [Essential Commands for Post Creation](#essential-commands-for-post-creation)
-- [Post viewing commands](#post-viewing-commands)
-- [Command line options](#command-line-options)
-- [Editor options](#editor-options)
+- [Post Viewing Commands](#post-viewing-commands)
+- [Command line Options](#command-line-options)
+- [Editor Options](#editor-options)
 
 ## Features
 
@@ -40,7 +40,7 @@ You can install the Secret Journal CLI globally using npm:
 npm install -g secret-journal
 ```
 
-# Quick start
+# Quick Start
 
 To use the CLI, just type `journal` in your terminal. If it’s your first time using it, an interactive tutorial will start automatically:
 
@@ -58,7 +58,7 @@ Here are essential [Vim](https://www.vim.org/) commands to quickly get you up to
 2. Press `Esc` and `u` to undo the last change
 3. Press `Esc` to exit insert mode, and type `:wq` to save and quit
 
-## Post viewing commands
+## Post Viewing Commands
 
 Use these commands while viewing a specific post:
 
@@ -76,7 +76,7 @@ Use these commands while viewing a specific post:
 
 - `N` goes to the previous search term
 
-## Command line options
+## Command Line Options
 
 It’s also possible to provide command-line arguments to perform specific actions and then exit the program. For example, `journal --create-post`
 
@@ -86,20 +86,22 @@ It’s also possible to provide command-line arguments to perform specific actio
 | --create-post | boolean | Create a new post in your journal                                                                                                                                                                                 |
 | --view-post   | boolean | Search for posts by keyword and view a specific post                                                                                                                                                              |
 | --edit-post   | boolean | Search for posts by keyword and edit or delete a specific post                                                                                                                                                    |
-| --set-editor  | boolean | Select a default text editor from the available options on your system                                                                                                                                            |
+| --set-editor  | boolean | Select a default text editor from the [available options](#editor-options) on your system                                                                                                                         |
 | --year        | string  | Hierarchical view of posts from a specific month and year. For instance, `--month=7 --year=2024` shows posts from July 2024. Omitting the `--year` flag displays posts from the entered month of the current year |
 | --month       | string  | Hierarchical view of posts from a specific month and year                                                                                                                                                         |
 | --help        | string  | Pass a flag such as `--help new-user` to learn about specific options, or use `--help` to view all available help options                                                                                         |
 
-## Editor options
+## Editor Options
 
-| Editor | Command | Available for                         |
-| ------ | ------- | ------------------------------------- |
-| Vim    | `vim`   | Unix, Linux, macOS, Windows (via WSL) |
-| Neovim | `nvim`  | Unix, Linux, macOS, Windows (via WSL) |
-| Nano   | `nano`  | Unix, Linux, macOS, Windows (via WSL) |
-| Vi     | `vi`    | Unix, Linux, macOS, Windows (via WSL) |
-| Emacs  | `emacs` | Unix, Linux, macOS, Windows (via WSL) |
+The following terminal-based editors are compatible with Secret Journal. Ensure at least one of these is installed on your system for detection:
+
+| Editor | Command | Available for                                                                               |
+| ------ | ------- | ------------------------------------------------------------------------------------------- |
+| Vim    | `vim`   | [Linux, macOS, Windows](https://www.vim.org/download.php)                                   |
+| Neovim | `nvim`  | [Linux, macOS, Windows](https://github.com/neovim/neovim/blob/master/INSTALL.md)            |
+| Nano   | `nano`  | [Linux, macOS](https://www.hostinger.com/tutorials/how-to-install-and-use-nano-text-editor) |
+| Emacs  | `emacs` | [Linux, macOS, Windows](https://www.gnu.org/software/emacs/download.html)                   |
+| Vi     | `vi`    | Linux, macOS (preinstalled)                                                                 |
 
 You can also edit the `config.json` file to reset or change your default editor. This file is located in the `.secret-journal` directory in your home folder.
 
@@ -112,6 +114,12 @@ You can also edit the `config.json` file to reset or change your default editor.
 
 ```bash
 cd ~/.secret-journal
+```
+
+3. Open the config.json file in your preferred text editor. For example, to open it with nano, run:
+
+```bash
+nano config.json
 ```
 
 #### Windows:
@@ -128,3 +136,15 @@ cd $env:USERPROFILE\.secret-journal
 ```powershell
 notepad config.json
 ```
+
+### Editing the config.json File
+
+The config.json file will contain a JSON object with the `defaultEditor` key if a default editor has been set; otherwise, it will be empty.
+
+```json
+{
+  "defaultEditor": "vim"
+}
+```
+
+To reset or change your default editor, update the value of the defaultEditor key to one of the listed commands, provided the editor is installed on your operating system. Save the file and close your text editor.
