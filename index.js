@@ -266,6 +266,9 @@ function printHelp(topic) {
     )} shows posts from July 2024. Omitting the ${chalk.red.bold(
       "--year"
     )} flag displays posts from the entered month of the current year.`,
+    "set-editor": `Use the ${chalk.red.bold(
+      "--set-editor"
+    )} flag to set your default editor for creating and editing posts.`,
   };
   const allMessages = [
     `• To access all program actions from the menu, start without any flags using the ${chalk.red.bold(
@@ -278,6 +281,7 @@ function printHelp(topic) {
     `• ${specificMessages["create-post"]}\n`,
     `• ${specificMessages["view-post"]}\n`,
     `• ${specificMessages["edit-post"]}\n`,
+    `• ${specificMessages["set-editor"]}\n`,
     `• ${specificMessages["year"]}\n`,
   ];
   if (specificMessages[topic]) {
