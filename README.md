@@ -52,11 +52,26 @@ journal
 
 ## Essential Commands for Post Creation
 
-Here are essential [Vim](https://www.vim.org/) commands to quickly get you up to speed with creating posts if it’s your preferred text editor:
+Here are essential commands to quickly get you up to speed with creating posts using your preferred text editor:
 
-1. Once in Vim, press `i` to enter insert mode and make desired changes
-2. Press `Esc` and `u` to undo the last change
-3. Press `Esc` to exit insert mode, and type `:wq` to save and quit
+| Editor | Command               | Description          |
+| ------ | --------------------- | -------------------- |
+| Vim    | `i`                   | Enter insert mode    |
+|        | `Esc`                 | Exit insert mode     |
+|        | `:wq`                 | Save and quit        |
+|        | `u`                   | Undo the last change |
+| Neovim | `i`                   | Enter insert mode    |
+|        | `Esc`                 | Exit insert mode     |
+|        | `:wq`                 | Save and quit        |
+|        | `u`                   | Undo the last change |
+| Vi     | `i`                   | Enter insert mode    |
+|        | `Esc`                 | Exit insert mode     |
+|        | `:wq`                 | Save and quit        |
+|        | `u`                   | Undo the last change |
+| Nano   | `Ctrl + O`            | Save the file        |
+|        | `Ctrl + X`            | Exit nano            |
+| Emacs  | `Ctrl + X` `Ctrl + S` | Save the file        |
+|        | `Ctrl + X` `Ctrl + C` | Exit emacs           |
 
 ## Post Viewing Commands
 
@@ -99,9 +114,9 @@ The following terminal-based editors are compatible with Secret Journal. Ensure 
 | ------ | ------- | ------------------------------------------------------------------------------------------- |
 | Vim    | `vim`   | [Linux, macOS, Windows](https://www.vim.org/download.php)                                   |
 | Neovim | `nvim`  | [Linux, macOS, Windows](https://github.com/neovim/neovim/blob/master/INSTALL.md)            |
+| Vi     | `vi`    | Linux, macOS (preinstalled)                                                                 |
 | Nano   | `nano`  | [Linux, macOS](https://www.hostinger.com/tutorials/how-to-install-and-use-nano-text-editor) |
 | Emacs  | `emacs` | [Linux, macOS, Windows](https://www.gnu.org/software/emacs/download.html)                   |
-| Vi     | `vi`    | Linux, macOS (preinstalled)                                                                 |
 
 You can also edit the `config.json` file to reset or change your default editor. This file is located in the `.secret-journal` directory in your home folder.
 
